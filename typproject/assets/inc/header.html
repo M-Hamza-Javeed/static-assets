@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Typing Course</title>
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
+  <link rel="stylesheet" href="{% static 'student/assets/css/style.css' %}">
+  <link rel='stylesheet' href="{% static 'student/assets/css/audioplayer.css' %}">
+  <script src="{% static 'student/assets/js/sidebar.js' %}" ></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="page-wrapper chiller-theme toggled">
+  <nav id="sidebar" class="sidebar-wrapper">
+    <input type="text" id="casrd_xas_32p3x24sxad" style="display:none;" value="{{ csrf_token }}" />
+      <div class="sidebar-content">
+        <div style="display: flex;justify-content: space-between;align-items: center;">
+        <div class="sidebar-brand">
+          <a href="/">Typing</a>
+        </div>
+        <span style="color:#fff;cursor: pointer;padding-right:20px;" class=" collapse-btn fa fa-bars"></span>
+    </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">
+            <strong>{{ request.session.stdname }}</strong>
+          </span>
+          <span class="user-role">Student</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul><li class="header-menu"><span>General</span></li>
+
+          <li class="sidebar-dropdown" >
+            <a><i class="fa fa-book"></i><span>Subject</span></a>
+            <div class="sidebar-submenu">
+              <ul>
+                {% for sub in Subject %}
+                <li>
+                  <a id='{{sub.pk}}' >{{sub.name}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+
+          <li class="sidebar-dropdown">
+            <a>
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Speed (WPM)</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                {% for sub in SpeedWPMs %}
+                <li>
+                  <a id='{{sub.pk}}' class="sidebar-lisner" >{{sub.name}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+
+          <li class="sidebar-dropdown">
+            <a>
+              <i class="fa fa-tachometer-alt"></i>
+              <span>From Books</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                {% for sub in From_books %}
+                <li>
+                  <a id='{{sub.pk}}' >{{sub.name}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

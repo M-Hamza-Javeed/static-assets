@@ -1,0 +1,60 @@
+
+</main>
+</div>
+<script>
+document.querySelectorAll(".sidebar-dropdown").forEach(element => {
+  element.addEventListener('click',(el)=>{
+    let _el = el.target.parentElement.getElementsByClassName('sidebar-submenu')
+    let _el_dis = el.target.parentElement.getElementsByClassName('sidebar-submenu-dis')
+    if(_el.length>0){
+      _el[0].classList.replace("sidebar-submenu","sidebar-submenu-dis");
+    }
+    else if (_el_dis.length>0){
+      _el_dis[0].classList.replace("sidebar-submenu-dis","sidebar-submenu");
+    }
+  });
+});
+window.addEventListener('load', (event) => {
+  document.querySelectorAll(".collapse-btn").forEach(element => {
+    console.log(element)
+    element.addEventListener("click",(e)=>{
+        let sidebar = document.getElementById('sidebar');
+        let headerbtn = document.getElementsByClassName('collapse-header-btn')[0];
+        let homepage = document.getElementById('Homepage')
+        console.log(4)
+        if(sidebar.style.width=="0px"){
+          sidebar.style.width="260px";
+          homepage.style.padding="0px";
+          headerbtn.style.display="none";
+        }else{
+          sidebar.style.width="0px";
+          homepage.style.padding="0px";
+          headerbtn.style.display="inline"
+        }
+    })
+  });
+
+  document.querySelectorAll(".collapse-header-btn").forEach(element => {
+    element.addEventListener("click",(e)=>{
+        let sidebar = document.getElementById('sidebar');
+        let headerbtn = document.getElementsByClassName('collapse-header-btn')[0];
+        let homepage = document.getElementById('Homepage')
+        console.log(2)
+        if(sidebar.style.width=="0px"){
+          sidebar.style.width="260px";
+          homepage.style.padding="0px";
+          homepage.style.paddingLeft="260px";
+          headerbtn.style.display="none";
+        }else{
+          sidebar.style.width="0px";
+          homepage.style.padding="0px";
+          headerbtn.style.display="inline"
+        }
+    })
+  });
+
+})
+
+</script>
+</body>
+</html>
